@@ -1,0 +1,4 @@
+alphax_hr_leave_payroll.patches.v0_2.execute
+alphax_hr_leave_payroll.patches.v0_3.execute
+alphax_hr_leave_payroll.patches.v0_4.execute
+alphax_hr_leave_payroll.patches.v0_5.execute

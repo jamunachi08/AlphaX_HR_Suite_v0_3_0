@@ -1,0 +1,178 @@
+{
+  "doctype": "DocType",
+  "name": "HR Benefit Profile",
+  "module": "AlphaX HR Leave Payroll",
+  "custom": 0,
+  "istable": 0,
+  "is_submittable": 0,
+  "engine": "InnoDB",
+  "track_changes": 1,
+  "autoname": "field:profile_name",
+  "editable_grid": 1,
+  "fields": [
+    {
+      "fieldname": "profile_name",
+      "fieldtype": "Data",
+      "label": "Profile Name",
+      "reqd": 1,
+      "in_list_view": 1,
+      "bold": 1
+    },
+    {
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "label": "Is Active",
+      "default": "1",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Company",
+      "options": "Company",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "assignment_level",
+      "fieldtype": "Select",
+      "label": "Assignment Level",
+      "options": "Company\nGrade\nEmployee",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "depends_on": "eval:doc.assignment_level=='Employee'",
+      "mandatory_depends_on": "eval:doc.assignment_level=='Employee'"
+    },
+    {
+      "fieldname": "grade",
+      "fieldtype": "Link",
+      "label": "Grade",
+      "options": "Employee Grade",
+      "depends_on": "eval:doc.assignment_level=='Grade'",
+      "mandatory_depends_on": "eval:doc.assignment_level=='Grade'"
+    },
+    {
+      "fieldname": "service_start_basis",
+      "fieldtype": "Select",
+      "label": "Service Start Basis",
+      "options": "Date of Joining\nTenure Reset Date if Available\nTenure Reset Date",
+      "default": "Tenure Reset Date if Available",
+      "description": "Which date to use as the start of service for leave and EOSB calculations."
+    },
+    {
+      "fieldname": "col_break_a",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "payroll_note_ro",
+      "fieldtype": "Small Text",
+      "label": "Payroll Note",
+      "read_only": 1,
+      "default": "If a salary component is empty here, the system falls back to HR Benefit Settings defaults."
+    },
+    {
+      "fieldname": "service_slab_section",
+      "fieldtype": "Section Break",
+      "label": "Leave Entitlement Slabs"
+    },
+    {
+      "fieldname": "service_slabs",
+      "fieldtype": "Table",
+      "label": "Service Slabs",
+      "options": "HR Benefit Service Slab",
+      "reqd": 1,
+      "description": "KSA Labour Law Art. 109: 21 days (0–3 yrs), 30 days (3–5 yrs), 35 days (5+ yrs) by default."
+    },
+    {
+      "fieldname": "eosb_section",
+      "fieldtype": "Section Break",
+      "label": "EOSB Settings (KSA Art. 84)"
+    },
+    {
+      "fieldname": "eosb_min_service_years",
+      "fieldtype": "Float",
+      "label": "Minimum Service Years for EOSB",
+      "default": "2",
+      "description": "Employees below this threshold receive no EOSB."
+    },
+    {
+      "fieldname": "eosb_half_month_limit_years",
+      "fieldtype": "Float",
+      "label": "Half-Month Salary Threshold (Years)",
+      "default": "5",
+      "description": "Below this: half-month salary per year. Above: full-month salary per year."
+    },
+    {
+      "fieldname": "eosb_include_housing_allowance",
+      "fieldtype": "Check",
+      "label": "Include Housing Allowance in EOSB Base",
+      "default": "0"
+    },
+    {
+      "fieldname": "col_break_b",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "basic_salary_component",
+      "fieldtype": "Link",
+      "label": "Basic Salary Component",
+      "options": "Salary Component"
+    },
+    {
+      "fieldname": "housing_allowance_component",
+      "fieldtype": "Link",
+      "label": "Housing Allowance Component",
+      "options": "Salary Component"
+    },
+    {
+      "fieldname": "leave_encashment_section",
+      "fieldtype": "Section Break",
+      "label": "Leave Encashment Settings"
+    },
+    {
+      "fieldname": "enable_leave_encashment",
+      "fieldtype": "Check",
+      "label": "Enable Leave Encashment",
+      "default": "1"
+    },
+    {
+      "fieldname": "max_leave_encashment_days",
+      "fieldtype": "Float",
+      "label": "Max Leave Encashment Days",
+      "default": "0",
+      "description": "0 = no cap at profile level."
+    },
+    {
+      "fieldname": "encashment_include_housing_allowance",
+      "fieldtype": "Check",
+      "label": "Include Housing Allowance in Encashment Base",
+      "default": "0",
+      "description": "Separate from the EOSB flag — KSA law may treat these bases differently."
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1, "write": 1, "create": 1, "delete": 1
+    },
+    {
+      "role": "HR Manager",
+      "read": 1, "write": 1, "create": 1, "delete": 1
+    },
+    {
+      "role": "HR User",
+      "read": 1
+    }
+  ]
+}

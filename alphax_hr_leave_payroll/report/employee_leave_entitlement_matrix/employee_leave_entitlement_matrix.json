@@ -1,0 +1,23 @@
+{
+  "doctype": "Report",
+  "name": "Employee Leave Entitlement Matrix",
+  "report_name": "Employee Leave Entitlement Matrix",
+  "ref_doctype": "Employee",
+  "report_type": "Script Report",
+  "module": "AlphaX HR Leave Payroll",
+  "is_standard": "Yes",
+  "filters": [
+    {
+      "fieldname": "company",
+      "label": "Company",
+      "fieldtype": "Link",
+      "options": "Company"
+    },
+    {
+      "fieldname": "as_of_date",
+      "label": "As of Date",
+      "fieldtype": "Date",
+      "default": "Today"
+    }
+  ]
+}

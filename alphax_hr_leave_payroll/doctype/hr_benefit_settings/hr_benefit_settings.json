@@ -1,0 +1,121 @@
+{
+  "doctype": "DocType",
+  "name": "HR Benefit Settings",
+  "module": "AlphaX HR Leave Payroll",
+  "issingle": 1,
+  "track_changes": 1,
+  "fields": [
+    {
+      "fieldname": "payroll_section",
+      "fieldtype": "Section Break",
+      "label": "Payroll Defaults"
+    },
+    {
+      "fieldname": "default_basic_salary_component",
+      "fieldtype": "Link",
+      "label": "Default Basic Salary Component",
+      "options": "Salary Component"
+    },
+    {
+      "fieldname": "default_housing_allowance_component",
+      "fieldtype": "Link",
+      "label": "Default Housing Allowance Component",
+      "options": "Salary Component"
+    },
+    {
+      "fieldname": "default_working_days_per_month",
+      "fieldtype": "Float",
+      "label": "Default Working Days Per Month",
+      "default": "30",
+      "description": "Used to compute daily salary for leave encashment. Typically 30 for KSA."
+    },
+    {
+      "fieldname": "default_note",
+      "fieldtype": "Small Text",
+      "label": "Settings Note",
+      "read_only": 1,
+      "default": "These values are used as fallback when an HR Benefit Profile does not define salary components."
+    },
+    {
+      "fieldname": "eosb_section",
+      "fieldtype": "Section Break",
+      "label": "EOSB Defaults (KSA Art. 84)"
+    },
+    {
+      "fieldname": "default_eosb_min_service_years",
+      "fieldtype": "Float",
+      "label": "Default EOSB Minimum Service Years",
+      "default": "2"
+    },
+    {
+      "fieldname": "default_eosb_half_month_limit_years",
+      "fieldtype": "Float",
+      "label": "Default Half-Month Salary Limit Years",
+      "default": "5"
+    },
+    {
+      "fieldname": "service_section",
+      "fieldtype": "Section Break",
+      "label": "Service Start Defaults"
+    },
+    {
+      "fieldname": "default_service_start_basis",
+      "fieldtype": "Select",
+      "label": "Default Service Start Basis",
+      "options": "Date of Joining\nTenure Reset Date if Available\nTenure Reset Date",
+      "default": "Tenure Reset Date if Available"
+    },
+    {
+      "fieldname": "tenure_governance_section",
+      "fieldtype": "Section Break",
+      "label": "Tenure Reset Governance"
+    },
+    {
+      "fieldname": "enable_tenure_reset_approval",
+      "fieldtype": "Check",
+      "label": "Require Tenure Reset Approval",
+      "default": "1",
+      "description": "When enabled, the Tenure Reset Approved By field becomes mandatory."
+    },
+    {
+      "fieldname": "require_tenure_reset_reason",
+      "fieldtype": "Check",
+      "label": "Require Tenure Reset Reason",
+      "default": "1",
+      "description": "When enabled, a reason must be recorded when the tenure reset date is set."
+    },
+    {
+      "fieldname": "alert_section",
+      "fieldtype": "Section Break",
+      "label": "Scheduled Alerts"
+    },
+    {
+      "fieldname": "enable_weekly_eosb_alert",
+      "fieldtype": "Check",
+      "label": "Enable Weekly EOSB Liability Email Alert",
+      "default": "1",
+      "description": "Sends a weekly EOSB liability summary to all HR Manager users."
+    },
+    {
+      "fieldname": "eosb_alert_threshold",
+      "fieldtype": "Currency",
+      "label": "Alert Threshold (SAR)",
+      "default": "0",
+      "description": "Only send alert if total EOSB liability exceeds this amount. 0 = always send."
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1, "write": 1
+    },
+    {
+      "role": "HR Manager",
+      "read": 1, "write": 1
+    },
+    {
+      "role": "HR User",
+      "read": 1
+    }
+  ]
+}

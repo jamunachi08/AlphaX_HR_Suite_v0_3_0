@@ -1,0 +1,32 @@
+{
+  "doctype": "DocType",
+  "name": "HR Benefit Service Slab",
+  "module": "AlphaX HR Leave Payroll",
+  "istable": 1,
+  "editable_grid": 1,
+  "fields": [
+    {
+      "fieldname": "from_year",
+      "fieldtype": "Float",
+      "label": "From Year",
+      "reqd": 1,
+      "in_list_view": 1,
+      "description": "Inclusive start of service year range."
+    },
+    {
+      "fieldname": "to_year",
+      "fieldtype": "Float",
+      "label": "To Year (exclusive)",
+      "in_list_view": 1,
+      "description": "Exclusive upper bound. Leave blank for open-ended final slab (5+ years)."
+    },
+    {
+      "fieldname": "annual_leave_days",
+      "fieldtype": "Float",
+      "label": "Annual Leave Days",
+      "reqd": 1,
+      "in_list_view": 1,
+      "description": "Number of leave days per year for employees in this service range."
+    }
+  ]
+}

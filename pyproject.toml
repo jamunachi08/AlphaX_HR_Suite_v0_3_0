@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "alphax_hr_leave_payroll"
+version = "0.5.0"
+description = "AlphaX HR Suite v0.5 — KSA-ready leave, EOSB, payroll governance & reporting for ERPNext/HRMS"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "AlphaX", email = "support@alphax.example" }
+]
+dependencies = [
+  "python-dateutil>=2.8"
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.bench.frappe-dependencies]
+frappe = ">=15,<17"

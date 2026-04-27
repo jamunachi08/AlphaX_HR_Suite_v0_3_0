@@ -1,0 +1,213 @@
+{
+  "doctype": "DocType",
+  "name": "EOSB Settlement",
+  "module": "AlphaX HR Leave Payroll",
+  "custom": 0,
+  "is_submittable": 1,
+  "track_changes": 1,
+  "autoname": "format:EOSB-.YYYY.-.#####",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "reqd": 1,
+      "in_list_view": 1,
+      "bold": 1,
+      "search_index": 1
+    },
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Company",
+      "options": "Company",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Posting Date",
+      "reqd": 1,
+      "default": "Today",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Draft\nSubmitted\nCancelled",
+      "default": "Draft",
+      "read_only": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "salary_slip",
+      "fieldtype": "Link",
+      "label": "Reference Salary Slip",
+      "options": "Salary Slip",
+      "description": "Optional: link to the last salary slip to pull salary components automatically."
+    },
+    {
+      "fieldname": "col_top",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "separation_reason",
+      "fieldtype": "Select",
+      "label": "Separation Reason",
+      "options": "\nResignation\nTermination\nRetirement\nEnd of Contract\nDeath\nOther"
+    },
+    {
+      "fieldname": "separation_notes",
+      "fieldtype": "Small Text",
+      "label": "Separation Notes"
+    },
+    {
+      "fieldname": "policy_section",
+      "fieldtype": "Section Break",
+      "label": "Policy & Service Details"
+    },
+    {
+      "fieldname": "benefit_policy_source",
+      "fieldtype": "Data",
+      "label": "Policy Source",
+      "read_only": 1
+    },
+    {
+      "fieldname": "benefit_profile",
+      "fieldtype": "Data",
+      "label": "Benefit Profile",
+      "read_only": 1
+    },
+    {
+      "fieldname": "service_start_date",
+      "fieldtype": "Date",
+      "label": "Service Start Date Used",
+      "read_only": 1
+    },
+    {
+      "fieldname": "service_years",
+      "fieldtype": "Float",
+      "label": "Service Years",
+      "precision": "4",
+      "read_only": 1
+    },
+    {
+      "fieldname": "col_policy",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "leave_entitlement_days",
+      "fieldtype": "Float",
+      "label": "Leave Entitlement Days",
+      "precision": "2",
+      "read_only": 1
+    },
+    {
+      "fieldname": "leave_days_to_encash",
+      "fieldtype": "Float",
+      "label": "Leave Days to Encash",
+      "precision": "2",
+      "default": "0"
+    },
+    {
+      "fieldname": "eosb_section",
+      "fieldtype": "Section Break",
+      "label": "EOSB Calculation"
+    },
+    {
+      "fieldname": "eosb_base_salary",
+      "fieldtype": "Currency",
+      "label": "EOSB Base Salary Used",
+      "read_only": 1
+    },
+    {
+      "fieldname": "eosb_amount",
+      "fieldtype": "Currency",
+      "label": "EOSB Amount",
+      "read_only": 1,
+      "bold": 1
+    },
+    {
+      "fieldname": "eosb_note",
+      "fieldtype": "Small Text",
+      "label": "EOSB Calculation Note",
+      "read_only": 1
+    },
+    {
+      "fieldname": "col_eosb",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "leave_encashment_amount",
+      "fieldtype": "Currency",
+      "label": "Leave Encashment Amount",
+      "read_only": 1
+    },
+    {
+      "fieldname": "leave_encashment_note",
+      "fieldtype": "Small Text",
+      "label": "Encashment Calculation Note",
+      "read_only": 1
+    },
+    {
+      "fieldname": "settlement_section",
+      "fieldtype": "Section Break",
+      "label": "Settlement Amounts"
+    },
+    {
+      "fieldname": "additional_amount",
+      "fieldtype": "Currency",
+      "label": "Additional Amount",
+      "default": "0",
+      "description": "Any extra payment to be included in the settlement."
+    },
+    {
+      "fieldname": "deduction_amount",
+      "fieldtype": "Currency",
+      "label": "Deduction Amount",
+      "default": "0",
+      "description": "Loans, advances, or other deductions from settlement."
+    },
+    {
+      "fieldname": "col_settle",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "total_settlement",
+      "fieldtype": "Currency",
+      "label": "Total Settlement",
+      "read_only": 1,
+      "bold": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "notes_section",
+      "fieldtype": "Section Break",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1, "write": 1, "create": 1, "delete": 1,
+      "submit": 1, "cancel": 1, "amend": 1
+    },
+    {
+      "role": "HR Manager",
+      "read": 1, "write": 1, "create": 1, "delete": 1,
+      "submit": 1, "cancel": 1, "amend": 1
+    },
+    {
+      "role": "HR User",
+      "read": 1
+    }
+  ]
+}

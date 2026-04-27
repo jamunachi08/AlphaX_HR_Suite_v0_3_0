@@ -1,0 +1,203 @@
+[
+  {
+    "doctype": "Custom Field",
+    "dt": "Employee",
+    "fieldname": "alphax_benefit_section",
+    "fieldtype": "Section Break",
+    "label": "AlphaX Benefits",
+    "insert_after": "date_of_joining",
+    "module": "AlphaX HR Leave Payroll",
+    "name": "Employee-alphax_benefit_section"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Employee",
+    "fieldname": "tenure_reset_date",
+    "fieldtype": "Date",
+    "label": "Service Tenure Reset Date",
+    "insert_after": "alphax_benefit_section",
+    "description": "Override the service start date for leave and EOSB calculations. Requires approval and reason when governance controls are enabled.",
+    "module": "AlphaX HR Leave Payroll",
+    "name": "Employee-tenure_reset_date"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Employee",
+    "fieldname": "tenure_reset_reason",
+    "fieldtype": "Small Text",
+    "label": "Tenure Reset Reason",
+    "insert_after": "tenure_reset_date",
+    "description": "Mandatory when a Service Tenure Reset Date is set and HR Benefit Settings requires a reason.",
+    "module": "AlphaX HR Leave Payroll",
+    "name": "Employee-tenure_reset_reason"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Employee",
+    "fieldname": "tenure_reset_approved_by",
+    "fieldtype": "Link",
+    "label": "Tenure Reset Approved By",
+    "options": "User",
+    "insert_after": "tenure_reset_reason",
+    "description": "Must be an HR Manager or System Manager — cannot be the employee's own account.",
+    "module": "AlphaX HR Leave Payroll",
+    "name": "Employee-tenure_reset_approved_by"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Leave Allocation",
+    "fieldname": "alphax_section",
+    "fieldtype": "Section Break",
+    "label": "AlphaX Policy Details",
+    "insert_after": "new_leaves_allocated",
+    "module": "AlphaX HR Leave Payroll",
+    "name": "Leave Allocation-alphax_section"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Leave Allocation",
+    "fieldname": "custom_manual_allocation",
+    "fieldtype": "Check",
+    "label": "Manual Override (Skip Auto-Calculation)",
+    "insert_after": "alphax_section",
+    "description": "When checked, AlphaX will not overwrite the Leave Days — useful for data migrations and ad-hoc adjustments.",
+    "module": "AlphaX HR Leave Payroll",
+    "name": "Leave Allocation-custom_manual_allocation"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Leave Allocation",
+    "fieldname": "custom_policy_source",
+    "fieldtype": "Data",
+    "label": "Benefit Policy Source",
+    "insert_after": "custom_manual_allocation",
+    "read_only": 1,
+    "module": "AlphaX HR Leave Payroll",
+    "name": "Leave Allocation-custom_policy_source"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Leave Allocation",
+    "fieldname": "custom_service_years",
+    "fieldtype": "Float",
+    "label": "Service Years",
+    "insert_after": "custom_policy_source",
+    "precision": "2",
+    "read_only": 1,
+    "module": "AlphaX HR Leave Payroll",
+    "name": "Leave Allocation-custom_service_years"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Leave Allocation",
+    "fieldname": "custom_entitlement_profile",
+    "fieldtype": "Link",
+    "label": "Benefit Profile",
+    "options": "HR Benefit Profile",
+    "insert_after": "custom_service_years",
+    "read_only": 1,
+    "module": "AlphaX HR Leave Payroll",
+    "name": "Leave Allocation-custom_entitlement_profile"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Salary Slip",
+    "fieldname": "alphax_benefit_section",
+    "fieldtype": "Section Break",
+    "label": "AlphaX Benefits",
+    "insert_after": "net_pay",
+    "module": "AlphaX HR Leave Payroll",
+    "name": "Salary Slip-alphax_benefit_section"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Salary Slip",
+    "fieldname": "custom_service_start_date",
+    "fieldtype": "Date",
+    "label": "Service Start Date Used",
+    "insert_after": "alphax_benefit_section",
+    "read_only": 1,
+    "module": "AlphaX HR Leave Payroll",
+    "name": "Salary Slip-custom_service_start_date"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Salary Slip",
+    "fieldname": "custom_service_years",
+    "fieldtype": "Float",
+    "label": "Service Years",
+    "insert_after": "custom_service_start_date",
+    "precision": "2",
+    "read_only": 1,
+    "module": "AlphaX HR Leave Payroll",
+    "name": "Salary Slip-custom_service_years"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Salary Slip",
+    "fieldname": "custom_leave_entitlement_days",
+    "fieldtype": "Float",
+    "label": "Leave Entitlement Days",
+    "insert_after": "custom_service_years",
+    "precision": "2",
+    "read_only": 1,
+    "module": "AlphaX HR Leave Payroll",
+    "name": "Salary Slip-custom_leave_entitlement_days"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Salary Slip",
+    "fieldname": "custom_benefit_policy_source",
+    "fieldtype": "Data",
+    "label": "Benefit Policy Source",
+    "insert_after": "custom_leave_entitlement_days",
+    "read_only": 1,
+    "module": "AlphaX HR Leave Payroll",
+    "name": "Salary Slip-custom_benefit_policy_source"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Salary Slip",
+    "fieldname": "custom_benefit_profile",
+    "fieldtype": "Link",
+    "label": "Benefit Profile",
+    "options": "HR Benefit Profile",
+    "insert_after": "custom_benefit_policy_source",
+    "read_only": 1,
+    "module": "AlphaX HR Leave Payroll",
+    "name": "Salary Slip-custom_benefit_profile"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Salary Slip",
+    "fieldname": "custom_eosb_base_salary",
+    "fieldtype": "Currency",
+    "label": "EOSB Base Salary Used",
+    "insert_after": "custom_benefit_profile",
+    "read_only": 1,
+    "module": "AlphaX HR Leave Payroll",
+    "name": "Salary Slip-custom_eosb_base_salary"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Salary Slip",
+    "fieldname": "custom_eosb_eligible_amount",
+    "fieldtype": "Currency",
+    "label": "EOSB Eligible Amount",
+    "insert_after": "custom_eosb_base_salary",
+    "read_only": 1,
+    "module": "AlphaX HR Leave Payroll",
+    "name": "Salary Slip-custom_eosb_eligible_amount"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Salary Slip",
+    "fieldname": "custom_eosb_note",
+    "fieldtype": "Small Text",
+    "label": "EOSB Note",
+    "insert_after": "custom_eosb_eligible_amount",
+    "read_only": 1,
+    "module": "AlphaX HR Leave Payroll",
+    "name": "Salary Slip-custom_eosb_note"
+  }
+]
